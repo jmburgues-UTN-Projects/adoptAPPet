@@ -9,6 +9,7 @@ import java.util.List;
 @Entity
 public class Vaccine {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer vaccineId;
     private String name;
     @ManyToMany(mappedBy = "recordBook", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)

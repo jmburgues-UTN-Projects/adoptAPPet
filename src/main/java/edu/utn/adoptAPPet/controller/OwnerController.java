@@ -29,6 +29,16 @@ public class OwnerController {
         this.ownerService.deleteById(ownerId);
     }
 
+    @PostMapping
+    public void add(@RequestBody Owner owner){
+        this.ownerService.add(owner);
+    }
+
+    @PutMapping
+    public void update(@RequestBody Owner owner){
+        this.ownerService.update(owner);
+    }
+
     @PutMapping("/{ownerId}/pet/{petId}")
     public void addPetToOwner(@PathVariable Long ownerId, @PathVariable Integer petId){
         this.ownerService.addPetToOwner(ownerId,petId);

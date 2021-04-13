@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.AccessType;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @NoArgsConstructor
@@ -20,7 +21,9 @@ import java.util.List;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Pet {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer petId;
+    @NotNull(message = "Owner's name is required.")
     private String name;
     private String gender;
     @ManyToMany

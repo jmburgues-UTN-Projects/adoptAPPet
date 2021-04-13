@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @NoArgsConstructor
@@ -11,7 +12,9 @@ import java.util.List;
 @Entity
 public class Owner {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idNumber;
+    @NotNull(message = "Owner's name is required.")
     private String name;
     private String adress;
     private String phoneNumber;
